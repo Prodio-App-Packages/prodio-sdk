@@ -1,0 +1,10 @@
+{
+  "extends": "@vercel/style-guide/typescript",
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "ES2017",
+    "moduleResolution": "Bundler",
+    "module": "ESNext"
+  },
+  "include": []
+}

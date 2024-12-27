@@ -1,0 +1,29 @@
+{
+  "name": "@flows/monorepo",
+  "description": "Flows monorepo",
+  "private": true,
+  "scripts": {
+    "e2e": "pnpm --filter e2e",
+    "js": "pnpm --filter js",
+    "react": "pnpm --filter react",
+    "react-components": "pnpm --filter react-components",
+    "tsc": "pnpm -r tsc",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "commitlint": "commitlint --edit",
+    "pre-push": "concurrently \"pnpm lint\" \"pnpm test\" \"pnpm tsc\"",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/types": "^19.5.0",
+    "@vercel/style-guide": "^6.0.0",
+    "concurrently": "^9.1.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.1.6",
+    "minimist": "^1.2.8",
+    "prettier": "^3.4.2"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
