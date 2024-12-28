@@ -20,7 +20,7 @@ const main = async () => {
   await exec(`pnpm ${package} build`);
 
   const currentVersion = require(`../workspaces/${package}/package.json`).version;
-  const packageAndVersion = `@flows/${package}@${currentVersion}`;
+  const packageAndVersion = `@insihts/${package}@${currentVersion}`;
   await exec(`git commit -am "${packageAndVersion}"`);
   await exec(`git tag -a ${packageAndVersion} -m '${packageAndVersion}'`);
   await exec("git push --no-verify");

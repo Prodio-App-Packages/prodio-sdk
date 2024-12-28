@@ -1,6 +1,6 @@
 {
-  "name": "@flows/monorepo",
-  "description": "Flows monorepo",
+  "name": "@insihts/monorepo",
+  "description": "Insihts monorepo",
   "private": true,
   "scripts": {
     "e2e": "pnpm --filter e2e",
