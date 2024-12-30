@@ -3,6 +3,8 @@
   "description": "Insihts - SDK for building advanced user onboarding tours. Supports no-code or in-code flows. With advanced features like Wait or Conditional steps to create the ultimate onboarding tour, boosting product adoption. Optimize user journey, increase engagement, and enhance product experiences with Insihts Workflow.",
   "keywords": [
     "react",
+    "insihts",
+    "workflow",
     "javascript",
     "html",
     "ux",
@@ -21,10 +23,10 @@
     "product-adoption",
     "product-tours"
   ],
-  "version": "0.4.4",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RBND-studio/flows-sdk.git"
+    "url": "git+https://github.com/Insihts-Packages/insihts-workflow.git"
   },
   "license": "MIT",
   "main": "./dist/index.js",

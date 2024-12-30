@@ -13,8 +13,7 @@ export function createParams(params?: Params): string {
   return `?${paramsString}`;
 }
 
-export const getApiUrl = (): string =>
-  FlowsCloudContext.getInstance().options?.customApiUrl ?? "https://api.flows-cloud.com";
+export const getApiUrl = (): string => "https://api.insihts.com";
 
 const f = <T>(
   url: string,

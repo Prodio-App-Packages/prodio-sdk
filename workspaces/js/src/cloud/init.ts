@@ -12,7 +12,7 @@ import { saveEvent } from "./event";
 import { FlowsCloudContext } from "./options";
 
 /**
- * Initialize Flows SDK. This will load Flows and CSS template from the Cloud.
+ * Initialize Insihts SDK. This will load Insihts and CSS template from the Cloud.
  *
  * **Warning**: This method should be called only once. Calling it multiple times will result in unnecessary network requests.
  */

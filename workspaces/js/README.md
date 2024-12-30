@@ -1,11 +1,6 @@
-# Flows 1.0 JavaScript SDK
-
-This SDK is no longer supported. Please use the [@flows/react](https://www.npmjs.com/package/@flows/react) SDK instead.
+# Insihts 1.0 JavaScript SDK
 
 ## Documentation
 
-Visit [https://flows.sh/docs](https://flows.sh/docs) for full documentation.
+Visit [https://docs.insihts.com](https://docs.insihts.com) for full documentation.
 
----
-
-Created by [rbnd.studio](https://rbnd.studio/).

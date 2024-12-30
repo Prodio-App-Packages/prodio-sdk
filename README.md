@@ -14,16 +14,9 @@ Build native product growth experiences, your way – Meet Insihts, the flexible
 
 Visit our [website](https://insihts.com) to learn more about Insihts
 
-## Packages
-
-This repository contains the SDKs for Insihts and accompanying built-in components.
-
-- [React SDK](./workspaces/react)
-- [React components](./workspaces/react-components)
-
 ## Documentation
 
-Visit [https://insihts.com/docs](https://insihts.com/docs) for full documentation.
+Visit [https://docs.insihts.com](https://docs.insihts.com) for full documentation.
 
 ---
 
