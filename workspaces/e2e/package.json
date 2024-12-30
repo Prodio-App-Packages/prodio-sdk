@@ -1,6 +1,6 @@
 {
   "name": "e2e",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve:test": "vite",
     "playwright": "playwright test",
