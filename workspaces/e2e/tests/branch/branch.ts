@@ -1,5 +1,5 @@
-import type { FlowSteps } from "@flows/js";
-import { init, startFlow } from "@flows/js/core";
+import type { FlowSteps } from "@insihts/js";
+import { init, startFlow } from "@insihts/js/core";
 
 const lastStep = new URLSearchParams(window.location.search).get("lastStep") === "true";
 const hideNext = new URLSearchParams(window.location.search).get("hideNext") !== "false";

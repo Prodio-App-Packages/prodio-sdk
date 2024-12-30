@@ -1,4 +1,4 @@
-import { endFlow, init } from "@flows/js/core";
+import { endFlow, init } from "@insihts/js/core";
 
 const endOnPrev = new URLSearchParams(location.search).get("endOnPrev") === "true";
 

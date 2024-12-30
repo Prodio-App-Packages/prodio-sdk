@@ -1,4 +1,4 @@
-import { Flow, FlowsOptions, init } from "@flows/js/core";
+import { Flow, FlowsOptions, init } from "@insihts/js/core";
 
 const frequency = new URLSearchParams(window.location.search).get("frequency") as Flow["frequency"];
 

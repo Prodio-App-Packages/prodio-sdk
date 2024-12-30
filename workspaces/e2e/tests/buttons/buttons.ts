@@ -1,5 +1,5 @@
-import type { FlowTooltipStep } from "@flows/js";
-import { init } from "@flows/js/core";
+import type { FlowTooltipStep } from "@insihts/js";
+import { init } from "@insihts/js/core";
 
 const hideClose = new URLSearchParams(window.location.search).get("hideClose") === "true";
 const hidePrev = new URLSearchParams(window.location.search).get("hidePrev") === "true";

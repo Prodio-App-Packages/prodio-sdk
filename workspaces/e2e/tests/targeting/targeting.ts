@@ -1,4 +1,4 @@
-import { init } from "@flows/js/core";
+import { init } from "@insihts/js/core";
 
 const john = new URLSearchParams(window.location.search).get("john") === "true";
 const clickElement = new URLSearchParams(window.location.search).get("clickElement") === "true";

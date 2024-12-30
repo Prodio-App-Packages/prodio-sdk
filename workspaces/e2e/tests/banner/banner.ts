@@ -1,4 +1,4 @@
-import { FlowBannerStep, init } from "@flows/js/core";
+import { FlowBannerStep, init } from "@insihts/js/core";
 
 const position =
   (new URLSearchParams(window.location.search).get("position") as
