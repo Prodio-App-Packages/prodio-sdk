@@ -1,7 +1,6 @@
 {
   "name": "@insihts/monorepo",
   "description": "Insihts monorepo",
-  "private": false,
   "scripts": {
     "e2e": "pnpm --filter e2e",
     "js": "pnpm --filter js",
