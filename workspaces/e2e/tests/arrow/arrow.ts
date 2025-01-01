@@ -1,4 +1,4 @@
-import { init } from "@insihts/js/core";
+import { init } from "@insihts/workflow/core";
 
 void init({
   flows: [

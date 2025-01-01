@@ -1,4 +1,4 @@
-import { endFlow, init } from "@insihts/js/core";
+import { endFlow, init } from "@insihts/workflow/core";
 
 const endOnPrev = new URLSearchParams(location.search).get("endOnPrev") === "true";
 

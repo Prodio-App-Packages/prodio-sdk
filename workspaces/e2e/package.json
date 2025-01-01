@@ -9,7 +9,7 @@
     "tsc": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@insihts/js": "workspace:*"
+    "@insihts/workflow": "workspace:*"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.1",

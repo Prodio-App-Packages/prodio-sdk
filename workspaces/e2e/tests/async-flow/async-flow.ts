@@ -1,3 +1,3 @@
-import { init } from "@insihts/js";
+import { init } from "@insihts/workflow";
 
 init({ projectId: "my-proj" });

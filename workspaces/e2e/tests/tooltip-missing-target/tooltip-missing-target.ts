@@ -1,4 +1,4 @@
-import { init, startFlow } from "@insihts/js/core";
+import { init, startFlow } from "@insihts/workflow/core";
 
 const createTarget = (): void => {
   const el = document.createElement("div");

@@ -1,4 +1,4 @@
-import { Flow } from "@insihts/js";
+import { Flow } from "@insihts/workflow";
 
 export const validFlow: Flow = {
   id: "valid-flow",

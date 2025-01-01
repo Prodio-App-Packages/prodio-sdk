@@ -1,6 +1,6 @@
-import { FlowTooltipStep } from "@insihts/js";
-import { FlowStep } from "@insihts/js";
-import { init } from "@insihts/js/core";
+import { FlowTooltipStep } from "@insihts/workflow";
+import { FlowStep } from "@insihts/workflow";
+import { init } from "@insihts/workflow/core";
 
 const initRootElement =
   new URLSearchParams(window.location.search).get("initRootElement") === "true";
