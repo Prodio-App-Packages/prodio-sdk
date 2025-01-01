@@ -13,7 +13,7 @@ export function createParams(params?: Params): string {
   return `?${paramsString}`;
 }
 
-export const getApiUrl = (): string => "https://api.insihts.com";
+export const getApiUrl = (): string => "https://api-cloud.insihts.com";
 
 const f = <T>(
   url: string,
