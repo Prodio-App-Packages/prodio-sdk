@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.12",
+    "@prodio/workflow": "^1.0.0",
     "superstruct": "^2.0.2"
   },
   "devDependencies": {
