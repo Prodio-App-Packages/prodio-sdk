@@ -1,4 +1,4 @@
-import { init } from "@insihts/workflow/core";
+import { init } from "@prodio/workflow/core";
 
 const john = new URLSearchParams(window.location.search).get("john") === "true";
 const clickElement = new URLSearchParams(window.location.search).get("clickElement") === "true";

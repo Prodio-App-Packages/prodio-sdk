@@ -1,4 +1,4 @@
-import { init, resetAllFlows, resetFlow } from "@insihts/workflow";
+import { init, resetAllFlows, resetFlow } from "@prodio/workflow";
 import { invalidFlow, validFlow } from "./flow-mocks";
 
 const validLocalFlow = new URLSearchParams(window.location.search).get("validLocalFlow") === "true";

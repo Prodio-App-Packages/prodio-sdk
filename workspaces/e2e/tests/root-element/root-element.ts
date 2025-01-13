@@ -1,6 +1,6 @@
-import { FlowTooltipStep } from "@insihts/workflow";
-import { FlowStep } from "@insihts/workflow";
-import { init } from "@insihts/workflow/core";
+import { FlowTooltipStep } from "@prodio/workflow";
+import { FlowStep } from "@prodio/workflow";
+import { init } from "@prodio/workflow/core";
 
 const initRootElement =
   new URLSearchParams(window.location.search).get("initRootElement") === "true";
