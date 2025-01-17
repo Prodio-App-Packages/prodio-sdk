@@ -96,7 +96,7 @@ importers:
 
   workspaces/e2e:
     dependencies:
-      '@insihts/workflow':
+      '@prodio/workflow':
         specifier: workspace:*
         version: link:../workflow
     devDependencies:

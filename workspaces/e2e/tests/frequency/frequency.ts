@@ -1,4 +1,4 @@
-import { Flow, FlowsOptions, init } from "@insihts/workflow/core";
+import { Flow, FlowsOptions, init } from "@prodio/workflow/core";
 
 const frequency = new URLSearchParams(window.location.search).get("frequency") as Flow["frequency"];
 

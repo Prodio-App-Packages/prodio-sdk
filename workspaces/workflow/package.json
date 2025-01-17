@@ -1,9 +1,10 @@
 {
-  "name": "@insihts/workflow",
-  "description": "Insihts - SDK for building advanced user onboarding tours. Supports no-code or in-code flows. With advanced features like Wait or Conditional steps to create the ultimate onboarding tour, boosting product adoption. Optimize user journey, increase engagement, and enhance product experiences with Insihts Workflow.",
+  "name": "@prodio-app/workflow",
+  "description": "Prodio - SDK for building advanced user onboarding tours. Supports no-code or in-code flows. With advanced features like Wait or Conditional steps to create the ultimate onboarding tour, boosting product adoption. Optimize user journey, increase engagement, and enhance product experiences with Prodio Workflow.",
   "keywords": [
     "react",
     "insihts",
+    "prodio",
     "workflow",
     "javascript",
     "html",
@@ -26,7 +27,7 @@
   "version": "1.0.3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Insihts-Packages/insihts-workflow-sdk.git"
+    "url": "git+https://github.com/Prodio-App-Packages/prodio-sdk.git"
   },
   "publishConfig": {
     "access": "public"
@@ -61,6 +62,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.6.12",
+    "@prodio/workflow": "^1.0.0",
     "superstruct": "^2.0.2"
   },
   "devDependencies": {

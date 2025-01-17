@@ -1,6 +1,6 @@
 {
-  "name": "@insihts/workflow",
-  "description": "Insihts monorepo",
+  "name": "@prodio/workflow",
+  "description": "Prodio monorepo",
   "scripts": {
     "e2e": "pnpm --filter e2e",
     "workflow": "pnpm --filter workflow",

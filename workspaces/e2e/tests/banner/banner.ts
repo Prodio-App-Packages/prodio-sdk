@@ -1,4 +1,4 @@
-import { FlowBannerStep, init } from "@insihts/workflow/core";
+import { FlowBannerStep, init } from "@prodio/workflow/core";
 
 const position =
   (new URLSearchParams(window.location.search).get("position") as
