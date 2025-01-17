@@ -1,4 +1,4 @@
-import { init } from "@prodio/workflow/core";
+import { init } from "@insihts/workflow/core";
 
 const closeOnOverlayClick =
   new URLSearchParams(window.location.search).get("closeOnOverlayClick") === "true";

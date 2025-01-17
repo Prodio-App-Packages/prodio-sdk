@@ -1,4 +1,4 @@
-import { init, startFlow } from "@prodio/workflow/core";
+import { init, startFlow } from "@insihts/workflow/core";
 
 let counter = 0;
 

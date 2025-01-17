@@ -1,4 +1,4 @@
-import { init } from "@prodio/workflow/core";
+import { init } from "@insihts/workflow/core";
 
 void init({
   flows: [

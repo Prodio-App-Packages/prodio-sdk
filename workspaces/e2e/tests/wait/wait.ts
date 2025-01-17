@@ -1,5 +1,5 @@
-import type { FlowWaitStep } from "@prodio/workflow";
-import { init } from "@prodio/workflow/core";
+import type { FlowWaitStep } from "@insihts/workflow";
+import { init } from "@insihts/workflow/core";
 
 const click = new URLSearchParams(window.location.search).get("click") === "true";
 const change = new URLSearchParams(window.location.search).get("change") === "true";

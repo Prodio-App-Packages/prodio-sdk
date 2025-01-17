@@ -1,5 +1,5 @@
-import type { FlowStep, FlowTooltipStep } from "@prodio/workflow";
-import { init } from "@prodio/workflow/core";
+import type { FlowStep, FlowTooltipStep } from "@insihts/workflow";
+import { init } from "@insihts/workflow/core";
 
 const tooltip = new URLSearchParams(window.location.search).get("tooltip") === "true";
 

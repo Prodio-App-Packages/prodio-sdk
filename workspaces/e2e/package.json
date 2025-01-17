@@ -9,7 +9,7 @@
     "tsc": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@prodio/workflow": "workspace:*"
+    "@insihts/workflow": "workspace:*"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.1",

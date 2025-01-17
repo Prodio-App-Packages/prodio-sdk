@@ -1,5 +1,5 @@
-import type { FlowTooltipStep } from "@prodio/workflow";
-import { init } from "@prodio/workflow/core";
+import type { FlowTooltipStep } from "@insihts/workflow";
+import { init } from "@insihts/workflow/core";
 
 const hideClose = new URLSearchParams(window.location.search).get("hideClose") === "true";
 const hidePrev = new URLSearchParams(window.location.search).get("hidePrev") === "true";
