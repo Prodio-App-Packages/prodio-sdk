@@ -54,6 +54,11 @@
   --flows-modal-minWidth: 320px;
   --flows-modal-maxWidth: 640px;
 
+  --flows-feedback-overlayBackground: var(--flows-bg-overlay);
+  --flows-feedback-padding: var(--flows-size-medium);
+  --flows-feedback-minWidth: 320px;
+  --flows-feedback-maxWidth: 640px;
+
   --flows-banner-screenEdgePadding: var(--flows-size-large);
   --flows-banner-padding: var(--flows-size-large);
   --flows-banner-minWidth: 200px;

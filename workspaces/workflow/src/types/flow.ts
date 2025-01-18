@@ -213,6 +213,95 @@ export interface FlowModalStep extends CommonStepProps {
    */
   wait?: WaitStepOptions | WaitStepOptions[];
 }
+
+export interface FeedbackFieldProps {
+  /**
+   * Label of the field.
+   */
+  label: string;
+  /**
+   * Placeholder of the field.
+   */
+  placeholder?: string;
+  /**
+   * Type of the field.
+   * @defaultValue `text`
+   */
+  type?: "text" | "email" | "number";
+  /**
+   * Required field.
+   * @defaultValue `false`
+   */
+  required?: boolean;
+}
+
+export interface FlowFeedbackStep extends CommonStepProps {
+  type: "feedback";
+  /**
+   * Title of the modal. Supports HTML.
+   */
+  title: string;
+  /**
+   * Body of the modal. Supports HTML.
+   */
+  body?: string;
+  fields?: FeedbackFieldProps[];
+  /**
+   * Hides modal overlay backdrop and makes rest .
+   * @defaultValue `false`
+   */
+  hideOverlay?: boolean;
+  /**
+   * Cancel the flow when the overlay is clicked.
+   * @defaultValue `false`
+   */
+  closeOnOverlayClick?: boolean;
+  /**
+   * When enabled the user can interact with the elements under the overlay.
+   * @defaultValue `false`
+   */
+  disableOverlayClickLayer?: boolean;
+  /**
+   * `z-index` of the modal. You should only change this if this modal is positioned differently than your default.
+   *
+   * Defaults to `var(--flows-zIndex)` from the style template.
+   */
+  zIndex?: string;
+  /**
+   * Hide the close button. Without the close button the user will not be able to close the tooltip.
+   */
+  hideClose?: boolean;
+  /**
+   * Hide the previous button. Without the previous button the user will not be able to go back.
+   * @defaultValue `false`
+   */
+  hidePrev?: boolean;
+  /**
+   * Hide the next button.
+   * Watch out this option should be used with `footerActions` to provide a way to go to the next step or by controlling the flow programmatically with `nextStep()`. Otherwise the user will be stuck on the current step.
+   * @defaultValue `false`
+   */
+  hideNext?: boolean;
+  /**
+   * Text of the previous button.
+   * @defaultValue `Back`
+   */
+  prevLabel?: string;
+  /**
+   * Text of the next and finish buttons.
+   * @defaultValue `Continue` and `Finish` for the last step
+   */
+  nextLabel?: string;
+  /**
+   * Custom buttons to be shown in the footer.
+   */
+  footerActions?: FooterActions;
+  /**
+   * Wait for an event to occur before continuing to the next step. You can wait for the user to click a button, navigate to a page, submit a form, etc.
+   */
+  wait?: WaitStepOptions | WaitStepOptions[];
+}
+
 export interface FlowBannerStep extends CommonStepProps {
   type: "banner";
   /**
@@ -337,7 +426,7 @@ export interface FlowWaitStep extends CommonStepProps {
    */
   wait: WaitStepOptions | WaitStepOptions[];
 }
-export type FlowStep = FlowModalStep | FlowTooltipStep | FlowBannerStep | FlowWaitStep;
+export type FlowStep = FlowModalStep | FlowTooltipStep | FlowBannerStep | FlowWaitStep | FlowFeedbackStep;
 type Step = FlowStep | FlowStep[][];
 export type FlowSteps = Step[];
 

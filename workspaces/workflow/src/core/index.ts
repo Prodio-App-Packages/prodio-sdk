@@ -9,6 +9,7 @@ export {
   renderTooltipElement,
   updateTooltip,
   renderBannerElement,
+  renderFeedbackElement,
 } from "./render";
 
 export * from "./public-methods";
@@ -24,6 +25,7 @@ export type {
   TrackingEvent,
   FlowTooltipStep,
   FlowModalStep,
+  FlowFeedbackStep,
   FlowBannerStep,
   FlowWaitStep,
   WaitStepOptions,

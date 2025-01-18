@@ -27,7 +27,7 @@ export class PreviewPanel {
   loadStyle(): void {
     const id = "flows-panel-styles";
     if (document.querySelector(`#${id}`)) return;
-    const href = `https://cdn.jsdelivr.net/npm/@prodio/workflow@${version}/css.min/panel.css`;
+    const href = `https://cdn.jsdelivr.net/npm/@insihts/workflow@${version}/css.min/panel.css`;
     const styleEl = <link id={id} rel="stylesheet" href={href} />;
     document.head.appendChild(styleEl);
   }

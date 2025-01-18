@@ -1,7 +1,7 @@
-import type { FlowBannerStep, FlowModalStep, FlowTooltipStep, FooterActionItem } from "../../types";
-import { isBannerStep, isModalStep, isTooltipStep } from "../../lib/step-type";
+import type { FlowBannerStep, FlowFeedbackStep, FlowModalStep, FlowTooltipStep, FooterActionItem } from "../../types";
+import { isBannerStep, isFeedbackStep, isModalStep, isTooltipStep } from "../../lib/step-type";
 
-export const getStepHeader = ({ step }: { step: FlowTooltipStep | FlowModalStep }): HTMLElement => (
+export const getStepHeader = ({ step }: { step: FlowTooltipStep | FlowModalStep | FlowFeedbackStep }): HTMLElement => (
   <div className="flows-header">
     <h1 className="flows-title" dangerouslySetInnerHTML={{ __html: step.title }} />
     {!step.hideClose && <button aria-label="Close" className="flows-cancel flows-close-btn" />}
@@ -10,9 +10,11 @@ export const getStepHeader = ({ step }: { step: FlowTooltipStep | FlowModalStep 
 export const getStepFooterActionButton = ({
   props,
   isLastStep,
+  type
 }: {
   props: FooterActionItem;
   isLastStep?: boolean;
+  type?: string;
 }): HTMLElement => {
   const classList = [];
   const variant = props.variant ?? "primary";
@@ -34,7 +36,7 @@ export const getStepFooterActionButton = ({
       </a>
     );
   return (
-    <button className={className} data-action={props.targetBranch}>
+    <button className={className} data-action={props.targetBranch} type={type === "feedback" ?  "submit" : "button"}>
       {props.label}
     </button>
   );
@@ -42,15 +44,18 @@ export const getStepFooterActionButton = ({
 const getNextButton = ({
   isLastStep,
   label,
+  type
 }: {
   isLastStep: boolean;
   label?: string;
+  type?: string;
 }): HTMLElement =>
   getStepFooterActionButton({
     props: {
       next: true,
       // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- nullish coalescing is not suitable here
       label: label || (!isLastStep ? "Continue" : "Finish"),
+      type: type
     },
     isLastStep,
   });
@@ -82,7 +87,7 @@ export const getStepFooter = ({
   isFirstStep: boolean;
 }): HTMLElement | null => {
   const backBtn = !isFirstStep && !step.hidePrev && getPrevButton({ label: step.prevLabel });
-  const continueBtn = !step.hideNext && getNextButton({ label: step.nextLabel, isLastStep });
+  const continueBtn = !step.hideNext && getNextButton({ label: step.nextLabel, isLastStep, type: step.type });
   const leftOptions = getStepFooterActions({ items: step.footerActions?.left, isLastStep });
   const centerOptions = getStepFooterActions({ items: step.footerActions?.center, isLastStep });
   const rightOptions = getStepFooterActions({ items: step.footerActions?.right, isLastStep });
@@ -93,6 +98,7 @@ export const getStepFooter = ({
   const isTooltip = isTooltipStep(step);
   const isModal = isModalStep(step);
   const isBanner = isBannerStep(step);
+  const isFeedback = isFeedbackStep(step);
 
   return (
     <div className="flows-footer">
@@ -108,6 +114,11 @@ export const getStepFooter = ({
         {isModal && continueBtn}
       </div>
       <div>
+        {isFeedback && backBtn}
+        {centerOptions}
+        {isFeedback && continueBtn}
+      </div>
+      <div>
         {rightOptions}
         {isTooltip && continueBtn}
       </div>
@@ -120,7 +131,7 @@ export const createRoot = ({
   step,
 }: {
   boundaryEl?: Element;
-  step?: FlowTooltipStep | FlowModalStep | FlowBannerStep;
+  step?: FlowTooltipStep | FlowModalStep | FlowBannerStep | FlowFeedbackStep;
 } = {}): HTMLElement => {
   const root = <div className="flows-root" />;
   root.style.pointerEvents = "auto";
@@ -129,3 +140,28 @@ export const createRoot = ({
   else document.body.appendChild(root);
   return root;
 };
+
+// export const createRoot = ({
+//   boundaryEl,
+//   step,
+// }: {
+//   boundaryEl?: Element;
+//   step?: FlowTooltipStep | FlowModalStep | FlowBannerStep | FlowFeedbackStep;
+// } = {}): HTMLElement => {
+//   // Create the root element using the DOM API
+//   const root = document.createElement("div");
+//   root.className = "flows-root";
+//   root.style.pointerEvents = "auto";
+
+//   if (step?.zIndex !== undefined) root.style.zIndex = step.zIndex.toString();
+
+//   // Append the root element to the boundary or body
+//   if (boundaryEl) {
+//     boundaryEl.appendChild(root);
+//   } else {
+//     document.body.appendChild(root);
+//   }
+
+//   return root;
+// };
+
