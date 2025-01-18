@@ -10,11 +10,9 @@ export const getStepHeader = ({ step }: { step: FlowTooltipStep | FlowModalStep 
 export const getStepFooterActionButton = ({
   props,
   isLastStep,
-  isFeedback
 }: {
   props: FooterActionItem;
   isLastStep?: boolean;
-  isFeedback?: boolean;
 }): HTMLElement => {
   const classList = [];
   const variant = props.variant ?? "primary";
@@ -36,7 +34,7 @@ export const getStepFooterActionButton = ({
       </a>
     );
   return (
-    <button className={className} data-action={props.targetBranch} type={isFeedback ? "submit" : "button"}>
+    <button className={className} data-action={props.targetBranch} >
       {props.label}
     </button>
   );
@@ -44,11 +42,9 @@ export const getStepFooterActionButton = ({
 const getNextButton = ({
   isLastStep,
   label,
-  isFeedback
 }: {
   isLastStep: boolean;
   label?: string;
-  isFeedback?: boolean;
 }): HTMLElement =>
   getStepFooterActionButton({
     props: {
@@ -56,7 +52,6 @@ const getNextButton = ({
       // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- nullish coalescing is not suitable here
       label: label || (!isLastStep ? "Continue" : "Finish"),
     },
-    isFeedback,
     isLastStep,
   });
 const getPrevButton = ({ label }: { label?: string }): HTMLElement =>
@@ -87,7 +82,7 @@ export const getStepFooter = ({
   isFirstStep: boolean;
 }): HTMLElement | null => {
   const backBtn = !isFirstStep && !step.hidePrev && getPrevButton({ label: step.prevLabel });
-  const continueBtn = !step.hideNext && getNextButton({ label: step.nextLabel, isLastStep, isFeedback: isFeedbackStep(step)});
+  const continueBtn = !step.hideNext && getNextButton({ label: step.nextLabel, isLastStep });
   const leftOptions = getStepFooterActions({ items: step.footerActions?.left, isLastStep });
   const centerOptions = getStepFooterActions({ items: step.footerActions?.center, isLastStep });
   const rightOptions = getStepFooterActions({ items: step.footerActions?.right, isLastStep });
