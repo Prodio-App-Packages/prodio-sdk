@@ -140,28 +140,3 @@ export const createRoot = ({
   else document.body.appendChild(root);
   return root;
 };
-
-// export const createRoot = ({
-//   boundaryEl,
-//   step,
-// }: {
-//   boundaryEl?: Element;
-//   step?: FlowTooltipStep | FlowModalStep | FlowBannerStep | FlowFeedbackStep;
-// } = {}): HTMLElement => {
-//   // Create the root element using the DOM API
-//   const root = document.createElement("div");
-//   root.className = "flows-root";
-//   root.style.pointerEvents = "auto";
-
-//   if (step?.zIndex !== undefined) root.style.zIndex = step.zIndex.toString();
-
-//   // Append the root element to the boundary or body
-//   if (boundaryEl) {
-//     boundaryEl.appendChild(root);
-//   } else {
-//     document.body.appendChild(root);
-//   }
-
-//   return root;
-// };
-
