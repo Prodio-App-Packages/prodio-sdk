@@ -55,8 +55,8 @@ const getNextButton = ({
       next: true,
       // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- nullish coalescing is not suitable here
       label: label || (!isLastStep ? "Continue" : "Finish"),
-      type: type
     },
+    type,
     isLastStep,
   });
 const getPrevButton = ({ label }: { label?: string }): HTMLElement =>
