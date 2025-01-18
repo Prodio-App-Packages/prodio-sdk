@@ -55,14 +55,14 @@ export const renderFeedbackElement = ({
             //   }
             // }}
           >
-            {/* {step.fields.map((field, index) => (
+            {step.fields.map((field) => (
               <div
-                key={index}
+               // key={index}
                 className="flows-feedback-form-group"
               >
                 {field.label && (
                   <label
-                    htmlFor={field.label+index}
+                    // htmlFor={field.label+index}
                     className="flows-feedback-form-label"
                   >
                     {field.label}
@@ -70,15 +70,15 @@ export const renderFeedbackElement = ({
                   </label>
                 )}
                 <input
-                  type={field.type || "text"}
-                  id={field.label+index}
-                  name={field.label}
-                  placeholder={field.placeholder || ""}
-                  required={!!field.required}
+                 //  type={field.type || "text"}
+                  //id={field.label+index}
+                  // name={field.label}
+                  //placeholder={field.placeholder || ""}
+                  //required={!!field.required}
                   className="flows-feedback-form-input"
                 />
               </div>
-            ))} */}
+            ))}
 
             {getStepFooter({ step, isFirstStep, isLastStep })}
           </form>
