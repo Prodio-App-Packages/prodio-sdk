@@ -36,6 +36,8 @@ export interface FooterActionItem {
    * `target="_blank"` - open the link in a new tab.
    */
   external?: boolean;
+  type?: string; // Add this line
+
 }
 export interface FooterActions {
   /**

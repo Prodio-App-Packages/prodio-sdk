@@ -10,11 +10,11 @@ export const getStepHeader = ({ step }: { step: FlowTooltipStep | FlowModalStep 
 export const getStepFooterActionButton = ({
   props,
   isLastStep,
-  type
+  isFeedback
 }: {
   props: FooterActionItem;
   isLastStep?: boolean;
-  type?: string;
+  isFeedback?: boolean;
 }): HTMLElement => {
   const classList = [];
   const variant = props.variant ?? "primary";
@@ -36,7 +36,7 @@ export const getStepFooterActionButton = ({
       </a>
     );
   return (
-    <button className={className} data-action={props.targetBranch} type={type === "feedback" ?  "submit" : "button"}>
+    <button className={className} data-action={props.targetBranch} type={isFeedback ? "submit" : "button"}>
       {props.label}
     </button>
   );
@@ -44,11 +44,11 @@ export const getStepFooterActionButton = ({
 const getNextButton = ({
   isLastStep,
   label,
-  type
+  isFeedback
 }: {
   isLastStep: boolean;
   label?: string;
-  type?: string;
+  isFeedback?: boolean;
 }): HTMLElement =>
   getStepFooterActionButton({
     props: {
@@ -56,7 +56,7 @@ const getNextButton = ({
       // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- nullish coalescing is not suitable here
       label: label || (!isLastStep ? "Continue" : "Finish"),
     },
-    type,
+    isFeedback,
     isLastStep,
   });
 const getPrevButton = ({ label }: { label?: string }): HTMLElement =>
@@ -87,7 +87,7 @@ export const getStepFooter = ({
   isFirstStep: boolean;
 }): HTMLElement | null => {
   const backBtn = !isFirstStep && !step.hidePrev && getPrevButton({ label: step.prevLabel });
-  const continueBtn = !step.hideNext && getNextButton({ label: step.nextLabel, isLastStep, type: step.type });
+  const continueBtn = !step.hideNext && getNextButton({ label: step.nextLabel, isLastStep, isFeedback: isFeedbackStep(step)});
   const leftOptions = getStepFooterActions({ items: step.footerActions?.left, isLastStep });
   const centerOptions = getStepFooterActions({ items: step.footerActions?.center, isLastStep });
   const rightOptions = getStepFooterActions({ items: step.footerActions?.right, isLastStep });
