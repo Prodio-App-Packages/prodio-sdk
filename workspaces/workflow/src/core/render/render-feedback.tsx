@@ -32,64 +32,7 @@ export const renderFeedbackElement = ({
             dangerouslySetInnerHTML={{ __html: step.body }}
           />
         )}
-        {step.fields && Array.isArray(step.fields) && (
-            <div
-            className="flows-feedback-form-container"
-            dangerouslySetInnerHTML={{
-              __html: `
-              <form 
-                class="flows-feedback-form" 
-                onsubmit="(async (event) => {
-                event.preventDefault();
-                const formData = new FormData(event.target);
-                const formJson = {};
-                formData.forEach((value, key) => {
-                  formJson[key] = value;
-                });
-
-                try {
-                  console.log('PACKAGE Form===> ', formJson);
-                  console.log('PACKAGE Step===>', ${JSON.stringify(step)});
-                  console.log('RIGHT HERE');
-                  const data = getPersistentState();
-
-                  console.log('PACKAGE Data ===> ', data);
-                } catch (error) {
-                  console.error('Error during API call:', error);
-                }
-                })(event)"
-              >
-                ${step.fields.map((field, index) => `
-                <div
-                  key=${index}
-                  class="flows-feedback-form-group"
-                >
-                  ${field.label ? `
-                  <label
-                    for="${field.label + String(index)}"
-                    class="flows-feedback-form-label"
-                  >
-                    ${field.label}
-                    ${field.required ? '<span style="color: red;"> *</span>' : ''}
-                  </label>
-                  ` : ''}
-                  <input
-                  type="${field.type ?? 'text'}"
-                  id="${field.label  + String(index)}"
-                  name="${field.label}"
-                  placeholder="${field.placeholder ?? ''}"
-                  required="${Boolean(field.required)}"
-                  class="flows-feedback-form-input"
-                  />
-                </div>
-                `).join('')}
-
-                ${getStepFooter({ step, isFirstStep, isLastStep })}
-              </form>
-              `,
-            }}
-            />
-        )}
+         {getStepFooter({ step, isFirstStep, isLastStep })}
       </div>
     </div>
   );
