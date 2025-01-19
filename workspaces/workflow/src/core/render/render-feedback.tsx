@@ -66,7 +66,7 @@ export const renderFeedbackElement = ({
                 >
                   ${field.label ? `
                   <label
-                    for="${field.label + index}"
+                    for="${field.label + String(index)}"
                     class="flows-feedback-form-label"
                   >
                     ${field.label}
@@ -74,11 +74,11 @@ export const renderFeedbackElement = ({
                   </label>
                   ` : ''}
                   <input
-                  type="${field.type || 'text'}"
-                  id="${field.label + index}"
+                  type="${field.type ?? 'text'}"
+                  id="${field.label  + String(index)}"
                   name="${field.label}"
-                  placeholder="${field.placeholder || ''}"
-                  required="${!!field.required}"
+                  placeholder="${field.placeholder ?? ''}"
+                  required="${Boolean(field.required)}"
                   class="flows-feedback-form-input"
                   />
                 </div>
