@@ -27,7 +27,7 @@ export const renderFeedbackElement = ({
       <div className="flows-feedback-container">
         {getStepHeader({ step })}
         {step.body && (
-          <p
+          <div
             className="flows-feedback-body"
             dangerouslySetInnerHTML={{ __html: step.body }}
           />
