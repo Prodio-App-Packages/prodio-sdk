@@ -428,8 +428,11 @@ export interface FlowWaitStep extends CommonStepProps {
    */
   wait: WaitStepOptions | WaitStepOptions[];
 }
+
 export type FlowStep = FlowModalStep | FlowTooltipStep | FlowBannerStep | FlowWaitStep | FlowFeedbackStep;
+
 type Step = FlowStep | FlowStep[][];
+
 export type FlowSteps = Step[];
 
 export type FlowFrequency = "once" | "every-session" | "every-time";

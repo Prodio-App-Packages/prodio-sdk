@@ -25,15 +25,40 @@ export const renderFeedbackElement = ({
   const modalContent = (
     <div className="flows-feedback-wrapper">
       <div className="flows-feedback-container">
-        {getStepHeader({ step })}
+  {getStepHeader({ step })}
+      <form id="feedbackForm">
         {step.body && (
           <div
             className="flows-feedback-body"
-            dangerouslySetInnerHTML={{ __html: step.body }}
+            dangerouslySetInnerHTML={{
+              __html: `
+              ${step.body}
+              <script>
+                document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+                  event.preventDefault(); // Prevent the default form submission
+                  const formData = new FormData(event.target);
+                  const data = Object.fromEntries(formData.entries()); // Convert to JSON object
+
+                  fetch('https://webhook.site/60f2eeab-64a7-4ed3-b12a-a631f417cc2a', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({data: "Siya Ram"}),
+                  })
+                  .then(response => response.json())
+                  .then(data => console.log('Success:', data))
+                  .catch(error => console.error('Error:', error));
+                });
+              </script>
+              `,
+            }}
           />
         )}
-         {getStepFooter({ step, isFirstStep, isLastStep })}
-      </div>
+        {getStepFooter({ step, isFirstStep, isLastStep })}
+      </form>
+    </div>
+      
     </div>
   );
 
