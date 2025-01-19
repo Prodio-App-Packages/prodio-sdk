@@ -33,55 +33,62 @@ export const renderFeedbackElement = ({
           />
         )}
         {step.fields && Array.isArray(step.fields) && (
-          <form 
-            className="flows-feedback-form" 
-            // onSubmit={async (event) => {
-            //   event.preventDefault();
-            //   const formData = new FormData(event.target as HTMLFormElement);
-            //   const formJson: Record<string, any> = {};
-            //   formData.forEach((value, key) => {
-            //     formJson[key] = value;
-            //   });
+            <div
+            className="flows-feedback-form-container"
+            dangerouslySetInnerHTML={{
+              __html: `
+              <form 
+                class="flows-feedback-form" 
+                onsubmit="(async (event) => {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                const formJson = {};
+                formData.forEach((value, key) => {
+                  formJson[key] = value;
+                });
 
-            //   try {
-            //     console.log("PACKAGE Form===> ", formJson);
-            //     console.log("PACKAGE Step===>", step);
-            //     console.log("RIGHT HERE");
-            //     const data = getPersistentState()
+                try {
+                  console.log('PACKAGE Form===> ', formJson);
+                  console.log('PACKAGE Step===>', ${JSON.stringify(step)});
+                  console.log('RIGHT HERE');
+                  const data = getPersistentState();
 
-            //     console.log("PACKAGE Data ===> ", data)
-            //   } catch (error) {
-            //     console.error("Error during API call:", error);
-            //   }
-            // }}
-          >
-            {step.fields.map((field) => (
-              <div
-               // key={index}
-                className="flows-feedback-form-group"
+                  console.log('PACKAGE Data ===> ', data);
+                } catch (error) {
+                  console.error('Error during API call:', error);
+                }
+                })(event)"
               >
-                {field.label && (
+                ${step.fields.map((field, index) => `
+                <div
+                  key=${index}
+                  class="flows-feedback-form-group"
+                >
+                  ${field.label ? `
                   <label
-                    // htmlFor={field.label+index}
-                    className="flows-feedback-form-label"
+                    for="${field.label + index}"
+                    class="flows-feedback-form-label"
                   >
-                    {field.label}
-                    {field.required && <span style="color: red;"> *</span>}
+                    ${field.label}
+                    ${field.required ? '<span style="color: red;"> *</span>' : ''}
                   </label>
-                )}
-                <input
-                 //  type={field.type || "text"}
-                  //id={field.label+index}
-                  // name={field.label}
-                  //placeholder={field.placeholder || ""}
-                  //required={!!field.required}
-                  className="flows-feedback-form-input"
-                />
-              </div>
-            ))}
+                  ` : ''}
+                  <input
+                  type="${field.type || 'text'}"
+                  id="${field.label + index}"
+                  name="${field.label}"
+                  placeholder="${field.placeholder || ''}"
+                  required="${!!field.required}"
+                  class="flows-feedback-form-input"
+                  />
+                </div>
+                `).join('')}
 
-            {getStepFooter({ step, isFirstStep, isLastStep })}
-          </form>
+                ${getStepFooter({ step, isFirstStep, isLastStep })}
+              </form>
+              `,
+            }}
+            />
         )}
       </div>
     </div>
