@@ -37,18 +37,18 @@ export const getStepFooterActionButton = ({
     );
   }
   else if (type === 'feedback'){
+    return(
     <button type="submit" className={className} data-action={props.targetBranch} >
       {/* {props.label} */}
       Feedback
     </button>
+    )
   }
-  else {
   return (
     <button className={className} data-action={props.targetBranch} >
       {props.label}
     </button>
     );
-  }
 };
 const getNextButton = ({
   isLastStep,
