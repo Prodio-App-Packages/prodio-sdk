@@ -10,9 +10,11 @@ export const getStepHeader = ({ step }: { step: FlowTooltipStep | FlowModalStep 
 export const getStepFooterActionButton = ({
   props,
   isLastStep,
+  type
 }: {
   props: FooterActionItem;
   isLastStep?: boolean;
+  type?: string;
 }): HTMLElement => {
   const classList = [];
   const variant = props.variant ?? "primary";
@@ -26,25 +28,36 @@ export const getStepFooterActionButton = ({
   if (props.targetBranch !== undefined) classList.push("flows-action");
 
   const className = classList.join(" ");
-
-  if (props.href)
+  
+  if (props.href){
     return (
       <a className={className} href={props.href} target={props.external ? "_blank" : undefined}>
         {props.label}
       </a>
     );
+  }
+  else if (type === 'feedback'){
+    <button type="submit" className={className} data-action={props.targetBranch} >
+      {/* {props.label} */}
+      Feedback
+    </button>
+  }
+  else {
   return (
     <button className={className} data-action={props.targetBranch} >
       {props.label}
     </button>
-  );
+    );
+  }
 };
 const getNextButton = ({
   isLastStep,
   label,
+  type
 }: {
   isLastStep: boolean;
   label?: string;
+  type?: string;
 }): HTMLElement =>
   getStepFooterActionButton({
     props: {
@@ -52,6 +65,7 @@ const getNextButton = ({
       // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- nullish coalescing is not suitable here
       label: label || (!isLastStep ? "Continue" : "Finish"),
     },
+    type,
     isLastStep,
   });
 const getPrevButton = ({ label }: { label?: string }): HTMLElement =>
@@ -76,13 +90,15 @@ export const getStepFooter = ({
   step,
   isFirstStep,
   isLastStep,
+  type,
 }: {
   step: FlowModalStep | FlowTooltipStep;
   isLastStep: boolean;
   isFirstStep: boolean;
+  type?: string;
 }): HTMLElement | null => {
   const backBtn = !isFirstStep && !step.hidePrev && getPrevButton({ label: step.prevLabel });
-  const continueBtn = !step.hideNext && getNextButton({ label: step.nextLabel, isLastStep });
+  const continueBtn = !step.hideNext && getNextButton({ label: step.nextLabel, isLastStep, type });
   const leftOptions = getStepFooterActions({ items: step.footerActions?.left, isLastStep });
   const centerOptions = getStepFooterActions({ items: step.footerActions?.center, isLastStep });
   const rightOptions = getStepFooterActions({ items: step.footerActions?.right, isLastStep });

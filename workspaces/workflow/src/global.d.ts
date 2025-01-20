@@ -6,7 +6,7 @@ interface Props {
   style?: string;
   href?: string;
   target?: string;
-  style?: string;
+  type?: string;
   dangerouslySetInnerHTML?: { __html: string };
 }
 

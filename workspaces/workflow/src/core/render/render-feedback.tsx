@@ -38,7 +38,7 @@ export const renderFeedbackElement = ({
                   event.preventDefault(); // Prevent the default form submission
                   const formData = new FormData(event.target);
                   const data = Object.fromEntries(formData.entries()); // Convert to JSON object
-
+                  console.log("button clicked")
                   fetch('https://webhook.site/60f2eeab-64a7-4ed3-b12a-a631f417cc2a', {
                     method: 'POST',
                     headers: {
@@ -55,7 +55,7 @@ export const renderFeedbackElement = ({
             }}
           />
         )}
-        {getStepFooter({ step, isFirstStep, isLastStep })}
+        {getStepFooter({ step, isFirstStep, isLastStep, type:'feedback' })}
       </form>
     </div>
       
